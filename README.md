@@ -1,2 +1,2 @@
-# Tic-toc-toe
+# Tic-tac-toe
 game for masters :)
