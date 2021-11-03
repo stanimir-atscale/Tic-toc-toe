@@ -1,7 +1,6 @@
-export interface IPlayer {
-    id: number,
+export type IPlayer = {
+    id: string,
     name: string,
     mark: string,
-    turns: Array<number>,
     wins: number
 }

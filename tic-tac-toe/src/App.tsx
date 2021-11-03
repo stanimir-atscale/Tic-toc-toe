@@ -1,9 +1,8 @@
-import { ToastContainer } from "react-toastify";
-import { TicTacToeComponent } from "./components/TicTacToeComponent/TicTacToeComponent";
 import "./App.css";
 import { Component } from "react";
-import Store from "./stores/Store";
 import { Provider } from "mobx-react";
+import Store from "./stores/Store";
+import { GameComponent } from "./components/GameComponent/GameComponent";
 
 class App extends Component {
   private store: Store;
@@ -14,17 +13,8 @@ class App extends Component {
   }
   render() {
     return (
-      <Provider Store={this.store}>
-        <div className="App">
-          <TicTacToeComponent />
-          <ToastContainer
-            position="bottom-center"
-            autoClose={5000}
-            hideProgressBar={false}
-            newestOnTop={false}
-            closeOnClick
-          />
-        </div>
+      <Provider store={this.store}>
+        <GameComponent />
       </Provider>
     );
   }
