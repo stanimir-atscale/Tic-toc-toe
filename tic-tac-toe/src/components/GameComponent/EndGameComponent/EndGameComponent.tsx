@@ -1,13 +1,13 @@
 import { observer } from "mobx-react";
 import { Component } from "react";
 
-type defaultProps = {
+type Props = {
   winnerName: string;
   onClick: React.MouseEventHandler<HTMLButtonElement>;
 };
 
 @observer
-export class EndGameComponent extends Component<defaultProps> {
+export class EndGameComponent extends Component<Props> {
   render() {
     const msg = this.props.winnerName
       ? this.props.winnerName + " Win!"

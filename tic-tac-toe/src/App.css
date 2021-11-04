@@ -66,24 +66,24 @@ body {
   height: 90px;
   border: solid 4px #ddd;
 }
-.ttt-game .ttt-board-container .ttt-board .cell--11,
-.ttt-game .ttt-board-container .ttt-board .cell--12,
-.ttt-game .ttt-board-container .ttt-board .cell--13 {
+.ttt-game .ttt-board-container .ttt-board .cell--1,
+.ttt-game .ttt-board-container .ttt-board .cell--2,
+.ttt-game .ttt-board-container .ttt-board .cell--3 {
   border-top-color: transparent;
 }
-.ttt-game .ttt-board-container .ttt-board .cell--11,
-.ttt-game .ttt-board-container .ttt-board .cell--21,
-.ttt-game .ttt-board-container .ttt-board .cell--31 {
+.ttt-game .ttt-board-container .ttt-board .cell--1,
+.ttt-game .ttt-board-container .ttt-board .cell--4,
+.ttt-game .ttt-board-container .ttt-board .cell--7 {
   border-left-color: transparent;
 }
-.ttt-game .ttt-board-container .ttt-board .cell--13,
-.ttt-game .ttt-board-container .ttt-board .cell--23,
-.ttt-game .ttt-board-container .ttt-board .cell--33 {
+.ttt-game .ttt-board-container .ttt-board .cell--3,
+.ttt-game .ttt-board-container .ttt-board .cell--6,
+.ttt-game .ttt-board-container .ttt-board .cell--9 {
   border-right-color: transparent;
 }
-.ttt-game .ttt-board-container .ttt-board .cell--31,
-.ttt-game .ttt-board-container .ttt-board .cell--32,
-.ttt-game .ttt-board-container .ttt-board .cell--33 {
+.ttt-game .ttt-board-container .ttt-board .cell--7,
+.ttt-game .ttt-board-container .ttt-board .cell--8,
+.ttt-game .ttt-board-container .ttt-board .cell--9 {
   border-bottom-color: transparent;
 }
 .ttt-game .ttt-board-container .ttt-board .ttt-label {
@@ -186,31 +186,31 @@ body {
   transform-origin: center;
   transform: translate(-50%, -50%) rotate(-45deg);
 }
-.ttt-game .ttt-board-container .ttt-board input[value="11"]:checked ~ .cell--11 .ttt-mark {
+.ttt-game .ttt-board-container .ttt-board input[value="1"]:checked ~ .cell--1 .ttt-mark {
   display: block;
 }
-.ttt-game .ttt-board-container .ttt-board input[value="12"]:checked ~ .cell--12 .ttt-mark {
+.ttt-game .ttt-board-container .ttt-board input[value="2"]:checked ~ .cell--2 .ttt-mark {
   display: block;
 }
-.ttt-game .ttt-board-container .ttt-board input[value="13"]:checked ~ .cell--13 .ttt-mark {
+.ttt-game .ttt-board-container .ttt-board input[value="3"]:checked ~ .cell--3 .ttt-mark {
   display: block;
 }
-.ttt-game .ttt-board-container .ttt-board input[value="21"]:checked ~ .cell--21 .ttt-mark {
+.ttt-game .ttt-board-container .ttt-board input[value="4"]:checked ~ .cell--4 .ttt-mark {
   display: block;
 }
-.ttt-game .ttt-board-container .ttt-board input[value="22"]:checked ~ .cell--22 .ttt-mark {
+.ttt-game .ttt-board-container .ttt-board input[value="5"]:checked ~ .cell--5 .ttt-mark {
   display: block;
 }
-.ttt-game .ttt-board-container .ttt-board input[value="23"]:checked ~ .cell--23 .ttt-mark {
+.ttt-game .ttt-board-container .ttt-board input[value="6"]:checked ~ .cell--6 .ttt-mark {
   display: block;
 }
-.ttt-game .ttt-board-container .ttt-board input[value="31"]:checked ~ .cell--31 .ttt-mark {
+.ttt-game .ttt-board-container .ttt-board input[value="7"]:checked ~ .cell--7 .ttt-mark {
   display: block;
 }
-.ttt-game .ttt-board-container .ttt-board input[value="32"]:checked ~ .cell--32 .ttt-mark {
+.ttt-game .ttt-board-container .ttt-board input[value="8"]:checked ~ .cell--8 .ttt-mark {
   display: block;
 }
-.ttt-game .ttt-board-container .ttt-board input[value="33"]:checked ~ .cell--33 .ttt-mark {
+.ttt-game .ttt-board-container .ttt-board input[value="9"]:checked ~ .cell--9 .ttt-mark {
   display: block;
 }
 .ttt-game .ttt-board-container .ttt-btn-bar {

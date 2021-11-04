@@ -1,7 +1,7 @@
 import "./App.css";
 import { Component } from "react";
 import { Provider } from "mobx-react";
-import Store from "./stores/Store";
+import Store from "./stores/GameStore";
 import { GameComponent } from "./components/GameComponent/GameComponent";
 
 class App extends Component {

@@ -1,13 +1,13 @@
 import { observer } from "mobx-react";
 import { Component } from "react";
-import { IPlayer } from "../../interfaces/IPlayer";
+import { IPlayer } from "../../../stores/interfaces/IPlayer";
 
-type defaultProps = {
+type Props = {
   player: IPlayer;
 };
 
 @observer
-export class GameInfoComponent extends Component<defaultProps> {
+export class GameInfoComponent extends Component<Props> {
   render() {
     const { name, mark, wins } = this.props.player;
     return (

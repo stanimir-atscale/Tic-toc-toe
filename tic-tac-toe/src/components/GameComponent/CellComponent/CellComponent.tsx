@@ -1,15 +1,15 @@
 import { observer } from "mobx-react";
 import React, { Component } from "react";
-import { ICell } from "../../interfaces/ICell";
+import { ICell } from "../../../stores/interfaces/ICell";
 
-type defaultProps = {
+type Props = {
   cell: ICell;
   currentPlayerMark: string;
   onChange: React.ChangeEventHandler<HTMLInputElement>;
 };
 
 @observer
-export class CellComponent extends Component<defaultProps> {
+export class CellComponent extends Component<Props> {
   render() {
     const { cell, currentPlayerMark, onChange } = this.props;
     const mark = cell.playerId === "0" ? "x" : "o";

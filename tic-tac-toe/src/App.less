@@ -4,6 +4,8 @@
 @ttt-hover-player-mark: #f4f4f4;
 @ttt-border-board: #ddd;
 @ttt-border-radius: 6px;
+//TODO : split in separate files
+//const`s in separate file
 
 html,
 body {
@@ -82,27 +84,27 @@ body {
         border: solid 4px @ttt-border-board;
       }
 
-      .cell--11,
-      .cell--12,
-      .cell--13 {
+      .cell--1,
+      .cell--2,
+      .cell--3 {
         border-top-color: transparent;
       }
 
-      .cell--11,
-      .cell--21,
-      .cell--31 {
+      .cell--1,
+      .cell--4,
+      .cell--7 {
         border-left-color: transparent;
       }
 
-      .cell--13,
-      .cell--23,
-      .cell--33 {
+      .cell--3,
+      .cell--6,
+      .cell--9 {
         border-right-color: transparent;
       }
 
-      .cell--31,
-      .cell--32,
-      .cell--33 {
+      .cell--7,
+      .cell--8,
+      .cell--9 {
         border-bottom-color: transparent;
       }
 
@@ -217,39 +219,40 @@ body {
         transform: translate(-50%, -50%) rotate(-45deg);
       }
 
-      input[value="11"]:checked ~ .cell--11 .ttt-mark {
+      //TODO use main class
+      input[value="1"]:checked ~ .cell--1 .ttt-mark {
         display: block;
       }
 
-      input[value="12"]:checked ~ .cell--12 .ttt-mark {
+      input[value="2"]:checked ~ .cell--2 .ttt-mark {
         display: block;
       }
 
-      input[value="13"]:checked ~ .cell--13 .ttt-mark {
+      input[value="3"]:checked ~ .cell--3 .ttt-mark {
         display: block;
       }
 
-      input[value="21"]:checked ~ .cell--21 .ttt-mark {
+      input[value="4"]:checked ~ .cell--4 .ttt-mark {
         display: block;
       }
 
-      input[value="22"]:checked ~ .cell--22 .ttt-mark {
+      input[value="5"]:checked ~ .cell--5 .ttt-mark {
         display: block;
       }
 
-      input[value="23"]:checked ~ .cell--23 .ttt-mark {
+      input[value="6"]:checked ~ .cell--6 .ttt-mark {
         display: block;
       }
 
-      input[value="31"]:checked ~ .cell--31 .ttt-mark {
+      input[value="7"]:checked ~ .cell--7 .ttt-mark {
         display: block;
       }
 
-      input[value="32"]:checked ~ .cell--32 .ttt-mark {
+      input[value="8"]:checked ~ .cell--8 .ttt-mark {
         display: block;
       }
 
-      input[value="33"]:checked ~ .cell--33 .ttt-mark {
+      input[value="9"]:checked ~ .cell--9 .ttt-mark {
         display: block;
       }
     }
