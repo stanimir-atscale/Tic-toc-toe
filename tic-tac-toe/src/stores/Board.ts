@@ -1,15 +1,15 @@
 import { action, makeAutoObservable, observable } from "mobx";
 import { ICell } from "./interfaces/ICell";
 
+const CELL_COUNT= 9;
 export class Board {
-  private cellCount = 9;
   @observable cells: Array<ICell>;
-  private minPlayerTurnsCountToWin = Math.sqrt(this.cellCount);
-  private maxPlayerTurnsCountToWin = Math.floor(this.cellCount / 2 + 1);
+  private minPlayerTurnsCountToWin = Math.sqrt(CELL_COUNT);
+  private maxPlayerTurnsCountToWin = Math.floor(CELL_COUNT / 2 + 1);
   private matrixCheck: Array<Array<number>>;
 
   constructor() {
-    this.cells = this.createCellArray(this.cellCount);
+    this.cells = this.createCellArray(CELL_COUNT);
     this.matrixCheck = this.createMatrixFromCellsIds(this.cells, this.minPlayerTurnsCountToWin);
     makeAutoObservable(this);
   }
