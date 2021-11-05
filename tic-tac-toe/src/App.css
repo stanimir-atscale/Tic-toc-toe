@@ -27,23 +27,31 @@ body .ttt-game-component .ttt-title {
   justify-content: center;
   color: #999999;
 }
-html .ttt-game-component .ttt-game-info-component,
-body .ttt-game-component .ttt-game-info-component {
+html .ttt-game-component .ttt-game-info-container,
+body .ttt-game-component .ttt-game-info-container {
+  flex: 1 1 auto;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #999999;
+}
+html .ttt-game-component .ttt-game-info-container .ttt-game-info-component,
+body .ttt-game-component .ttt-game-info-container .ttt-game-info-component {
   padding: 10px 20px;
 }
-html .ttt-game-component .ttt-game-info-component .ttt-player-name,
-body .ttt-game-component .ttt-game-info-component .ttt-player-name {
+html .ttt-game-component .ttt-game-info-container .ttt-game-info-component .ttt-player-name,
+body .ttt-game-component .ttt-game-info-container .ttt-game-info-component .ttt-player-name {
   font-size: 24px;
   font-weight: bolder;
   text-transform: uppercase;
 }
-html .ttt-game-component .ttt-game-info-component .ttt-player-mark,
-body .ttt-game-component .ttt-game-info-component .ttt-player-mark {
+html .ttt-game-component .ttt-game-info-container .ttt-game-info-component .ttt-player-mark,
+body .ttt-game-component .ttt-game-info-container .ttt-game-info-component .ttt-player-mark {
   font-size: 24px;
   font-weight: bolder;
 }
-html .ttt-game-component .ttt-game-info-component .ttt-player-wins,
-body .ttt-game-component .ttt-game-info-component .ttt-player-wins {
+html .ttt-game-component .ttt-game-info-container .ttt-game-info-component .ttt-player-wins,
+body .ttt-game-component .ttt-game-info-container .ttt-game-info-component .ttt-player-wins {
   font-size: 24px;
   font-weight: bolder;
   padding-left: 10px;

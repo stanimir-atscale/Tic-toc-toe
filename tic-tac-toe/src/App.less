@@ -43,7 +43,14 @@ body {
       color: @ttt-title-color;
     }
 
-    .ttt-game-info-component {
+    .ttt-game-info-container {
+      flex: 1 1 auto;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: @ttt-title-color;
+
+      .ttt-game-info-component {
         padding: 10px 20px;
 
         .ttt-player-name {
@@ -61,6 +68,7 @@ body {
           padding-left: 10px;
         }
       
+    }
     }
 
     .ttt-board-container {

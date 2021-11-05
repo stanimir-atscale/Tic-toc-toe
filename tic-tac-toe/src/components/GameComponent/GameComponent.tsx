@@ -18,7 +18,7 @@ export class GameComponent extends Component<Props> {
     return (
       <div className="ttt-game-component">
         <h1 className="ttt-title">TIC TAC TOE</h1>
-        <div className="ttt-title">{this.renderGameInfo()}</div>
+        <div className="ttt-game-info-container">{this.renderGameInfo()}</div>
 
         {this.props.store?.currentPlayer.name && (
           <div className="ttt-player-turn-message">
