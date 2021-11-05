@@ -12,8 +12,10 @@ type Props = {
 export class CellComponent extends Component<Props> {
   render() {
     const { cell, currentPlayerMark, onChange } = this.props;
-    let mark = cell.playerId === 0 ? "x" : "o";
-    if (cell.playerId === null) mark = "";
+    let mark = "";
+    if (typeof cell.playerId === "number") {
+      mark = cell.playerId === 0 ? "x" : "o";
+    };
 
     return (
       <>
