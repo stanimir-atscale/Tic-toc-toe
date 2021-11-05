@@ -1,30 +1,32 @@
+@import "../../../styles/variables.less";
+
 .ttt-cell {
   position: relative;
   width: 90px;
   height: 90px;
   border: solid 4px @ttt-border-board;
 
+  &.cell--0,
   &.cell--1,
-  &.cell--2,
-  &.cell--3 {
+  &.cell--2 {
     border-top-color: transparent;
   }
 
-  &.cell--1,
-  &.cell--4,
-  &.cell--7 {
+  &.cell--0,
+  &.cell--3,
+  &.cell--6 {
     border-left-color: transparent;
   }
 
-  &.cell--3,
-  &.cell--6,
-  &.cell--9 {
+  &.cell--2,
+  &.cell--5,
+  &.cell--8 {
     border-right-color: transparent;
   }
 
+  &.cell--6,
   &.cell--7,
-  &.cell--8,
-  &.cell--9 {
+  &.cell--8 {
     border-bottom-color: transparent;
   }
 
@@ -156,6 +158,12 @@
 input {
   display: none;
 
+  &[value="0"] {
+    &:checked ~ .cell--0 .ttt-mark {
+      display: block;
+    }
+  }
+
   &[value="1"] {
     &:checked ~ .cell--1 .ttt-mark {
       display: block;
@@ -200,12 +208,6 @@ input {
 
   &[value="8"] {
     &:checked ~ .cell--8 .ttt-mark {
-      display: block;
-    }
-  }
-
-  &[value="9"] {
-    &:checked ~ .cell--9 .ttt-mark {
       display: block;
     }
   }

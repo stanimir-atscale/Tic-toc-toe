@@ -1,0 +1,56 @@
+.ttt-game-component * {
+  box-sizing: border-box;
+}
+.ttt-game-component .ttt-title {
+  flex: 1 1 auto;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #999999;
+}
+.ttt-game-component .ttt-game-info-container {
+  flex: 1 1 auto;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #999999;
+}
+.ttt-game-component .ttt-player-turn-message {
+  text-align: center;
+  padding: 20px;
+  font-size: 24px;
+  color: #999999;
+}
+.ttt-game-component .ttt-board-container {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  height: 100%;
+}
+.ttt-game-component .ttt-board-container .ttt-board {
+  flex: 1 1 auto;
+  display: grid;
+  grid-template: repeat(3, min-content) / repeat(3, min-content);
+  justify-content: center;
+  align-content: center;
+}
+.ttt-game-component .ttt-board-container .ttt-btn-bar {
+  flex: 1 1 auto;
+  text-align: center;
+  margin-top: 40px;
+}
+.ttt-game-component .ttt-board-container .ttt-btn-bar .ttt-newGame {
+  border: none;
+  padding: 18px;
+  text-transform: uppercase;
+  background: #d6d6d6;
+  border-radius: 6px;
+  font-weight: bold;
+  color: #909090;
+  font-size: 12px;
+  cursor: pointer;
+}
+.ttt-game-component .ttt-board-container .ttt-btn-bar .ttt-newGame:hover {
+  opacity: 0.8;
+}
+/*# sourceMappingURL=game-component.css.map */

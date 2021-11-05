@@ -1,0 +1,55 @@
+.overlay {
+  position: fixed;
+  z-index: 2;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background-color: rgba(128, 128, 128, 0.5);
+}
+.overlay .ttt-endgame {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  width: 400px;
+  height: 300px;
+  border-radius: 6px;
+  background: white;
+  box-shadow: 0 0 120px #0002;
+  transform: translate(-50%, -50%);
+  text-align: center;
+  z-index: 1000;
+  animation: endgame-entrance 0.3s 0.43s cubic-bezier(0, 0.8, 0.4, 1.2) both;
+  padding-top: 10px;
+}
+.overlay .ttt-endgame .ttt-msg {
+  display: block;
+  text-align: center;
+  margin: 50px;
+  font-weight: bold;
+  font-size: 24px;
+  line-height: 1.5;
+  color: #777;
+}
+.overlay .ttt-endgame .ttt-tryAgain {
+  border: none;
+  margin: 20px;
+  padding: 18px;
+  text-transform: uppercase;
+  background: #d8eec0;
+  font-weight: bold;
+  border-radius: 6px;
+  color: #668870;
+  font-size: 12px;
+  cursor: pointer;
+}
+.overlay .ttt-endgame .ttt-tryAgain:hover {
+  opacity: 0.8;
+}
+@keyframes endgame-entrance {
+  from {
+    opacity: 0;
+    transform: translate(-50%, -50%) scale(0.5);
+  }
+}
+/*# sourceMappingURL=end-game-component.css.map */

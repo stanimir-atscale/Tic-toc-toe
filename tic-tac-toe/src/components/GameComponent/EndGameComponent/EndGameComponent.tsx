@@ -1,3 +1,4 @@
+import "./end-game-component.css";
 import { observer } from "mobx-react";
 import { Component } from "react";
 

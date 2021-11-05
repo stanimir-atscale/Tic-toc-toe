@@ -1,3 +1,4 @@
+import "./cell-component.css";
 import { observer } from "mobx-react";
 import React, { Component } from "react";
 import { ICell } from "../../../stores/interfaces/ICell";
