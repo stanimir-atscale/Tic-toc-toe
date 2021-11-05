@@ -12,7 +12,8 @@ type Props = {
 export class CellComponent extends Component<Props> {
   render() {
     const { cell, currentPlayerMark, onChange } = this.props;
-    const mark = cell.playerId === "0" ? "x" : "o";
+    let mark = cell.playerId === 0 ? "x" : "o";
+    if (cell.playerId === null) mark = "";
 
     return (
       <>
@@ -20,13 +21,16 @@ export class CellComponent extends Component<Props> {
           id={cell.id.toString()}
           type="radio"
           value={cell.id.toString()}
-          checked={!!cell.playerId}
+          checked={!!mark}
           onChange={onChange}
         />
 
         <div className={`${"ttt-cell cell--" + cell.id}`}>
           <div className={"ttt-mark mark--" + mark}></div>
-          <label className={"ttt-label label--" + currentPlayerMark} htmlFor={cell.id.toString()} />
+          <label
+            className={"ttt-label label--" + currentPlayerMark}
+            htmlFor={cell.id.toString()}
+          />
         </div>
       </>
     );

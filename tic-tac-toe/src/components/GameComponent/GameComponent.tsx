@@ -79,7 +79,7 @@ export class GameComponent extends Component<Props> {
   private handleCheckboxChange(event: React.ChangeEvent<HTMLInputElement>) {
     this.props.store?.board.updateCellProperty(
       Number(event.target.id),
-      this.props.store?.currentPlayer.id.toString()
+      this.props.store?.currentPlayer.id
     );
 
     const isCurrentPlayerWin = this.props.store?.board.checkCurrentPlayerWin(

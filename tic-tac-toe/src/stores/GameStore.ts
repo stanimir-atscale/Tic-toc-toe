@@ -19,13 +19,13 @@ export default class GameStore {
     makeAutoObservable(this);
   }
 
-  @action increasePlayerWins(playerId: string) {
+  @action increasePlayerWins(playerId: number) {
     const playerIndex = this.players.findIndex((player) => player.id === playerId);
     this.players[playerIndex].wins++;
   };
 
   @action changeCurrentPlayer() {
-    if (this.currentPlayer.id === "0") {
+    if (this.currentPlayer.id === 0) {
       this.currentPlayer = this.players[1];
     } else {
       this.currentPlayer = this.players[0];

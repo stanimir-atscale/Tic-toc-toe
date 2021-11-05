@@ -1,5 +1,5 @@
 export type IPlayer = {
-    id: string,
+    id: number,
     name: string,
     mark: string,
     wins: number

@@ -1,13 +1,13 @@
 {
     "cells": [
-        { "id": "1", "playerId": "" },
-        { "id": "2", "playerId": "" },
-        { "id": "3", "playerId": "" },
-        { "id": "4", "playerId": "" },
-        { "id": "5", "playerId": "" },
-        { "id": "6", "playerId": "" },
-        { "id": "7", "playerId": "" },
-        { "id": "8", "playerId": "" },
-        { "id": "9", "playerId": "" }
+        { "id": 1, "playerId": null },
+        { "id": 2, "playerId": null },
+        { "id": 3, "playerId": null },
+        { "id": 4, "playerId": null },
+        { "id": 5, "playerId": null },
+        { "id": 6, "playerId": null },
+        { "id": 7, "playerId": null },
+        { "id": 8, "playerId": null },
+        { "id": 9, "playerId": null }
     ]
 }
