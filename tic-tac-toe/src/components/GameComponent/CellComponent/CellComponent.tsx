@@ -17,16 +17,16 @@ export class CellComponent extends Component<Props> {
     return (
       <>
         <input
-          id={cell.id}
+          id={cell.id.toString()}
           type="radio"
-          value={cell.id}
+          value={cell.id.toString()}
           checked={!!cell.playerId}
           onChange={onChange}
         />
 
-        <div className={"ttt-cell cell--" + cell.id}>
+        <div className={`${"ttt-cell cell--" + cell.id}`}>
           <div className={"ttt-mark mark--" + mark}></div>
-          <label className={"ttt-label label--" + currentPlayerMark} htmlFor={cell.id} />
+          <label className={"ttt-label label--" + currentPlayerMark} htmlFor={cell.id.toString()} />
         </div>
       </>
     );

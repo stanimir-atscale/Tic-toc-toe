@@ -11,21 +11,19 @@ export class GameInfoComponent extends Component<Props> {
   render() {
     const { name, mark, wins } = this.props.player;
     return (
-      <div>
-        <div className="ttt-gameInfoComponent">
+        <div className="ttt-game-info-component">
           <br />
           <span>
-            <span className="ttt-playerName">
-              {name} (<span className="ttt-playerMark">{mark}</span>)
+            <span className="ttt-player-name">
+              {name} (<span className="ttt-player-mark">{mark}</span>)
             </span>
           </span>
           <br />
           <span>
             WINS:
-            <span className="ttt-playerWins">{wins}</span>
+            <span className="ttt-player-wins">{wins}</span>
           </span>
         </div>
-      </div>
     );
   }
 }

@@ -8,92 +8,118 @@ body {
   min-height: 600px;
   font-family: sans-serif;
 }
-.ttt-game * {
+html .ttt-game-component *,
+body .ttt-game-component * {
   box-sizing: border-box;
 }
-.ttt-game .ttt-playerTurnMessage {
+html .ttt-game-component .ttt-player-turn-message,
+body .ttt-game-component .ttt-player-turn-message {
   text-align: center;
   padding: 20px;
   font-size: 24px;
   color: #999999;
 }
-.ttt-game .ttt-gameInfoComponent {
-  padding: 10px 20px;
-}
-.ttt-game .ttt-gameInfoComponent .playerInfo {
-  display: block;
-}
-.ttt-game .ttt-gameInfoComponent .ttt-playerName {
-  font-size: 24px;
-  font-weight: bolder;
-  text-transform: uppercase;
-}
-.ttt-game .ttt-gameInfoComponent .ttt-playerMark {
-  font-size: 24px;
-  font-weight: bolder;
-}
-.ttt-game .ttt-gameInfoComponent .ttt-playerWins {
-  font-size: 24px;
-  font-weight: bolder;
-  padding-left: 10px;
-}
-.ttt-game input {
-  display: none;
-}
-.ttt-game .ttt-title {
+html .ttt-game-component .ttt-title,
+body .ttt-game-component .ttt-title {
   flex: 1 1 auto;
   display: flex;
   align-items: center;
   justify-content: center;
   color: #999999;
 }
-.ttt-game .ttt-board-container {
+html .ttt-game-component .ttt-game-info-component,
+body .ttt-game-component .ttt-game-info-component {
+  padding: 10px 20px;
+}
+html .ttt-game-component .ttt-game-info-component .ttt-player-name,
+body .ttt-game-component .ttt-game-info-component .ttt-player-name {
+  font-size: 24px;
+  font-weight: bolder;
+  text-transform: uppercase;
+}
+html .ttt-game-component .ttt-game-info-component .ttt-player-mark,
+body .ttt-game-component .ttt-game-info-component .ttt-player-mark {
+  font-size: 24px;
+  font-weight: bolder;
+}
+html .ttt-game-component .ttt-game-info-component .ttt-player-wins,
+body .ttt-game-component .ttt-game-info-component .ttt-player-wins {
+  font-size: 24px;
+  font-weight: bolder;
+  padding-left: 10px;
+}
+html .ttt-game-component .ttt-board-container,
+body .ttt-game-component .ttt-board-container {
   display: flex;
   flex-direction: column;
   width: 100%;
   height: 100%;
 }
-.ttt-game .ttt-board-container .ttt-board {
+html .ttt-game-component .ttt-board-container .ttt-board,
+body .ttt-game-component .ttt-board-container .ttt-board {
   flex: 1 1 auto;
   display: grid;
   grid-template: repeat(3, min-content) / repeat(3, min-content);
   justify-content: center;
   align-content: center;
 }
-.ttt-game .ttt-board-container .ttt-board .ttt-cell {
+html .ttt-game-component .ttt-board-container .ttt-board .ttt-cell,
+body .ttt-game-component .ttt-board-container .ttt-board .ttt-cell {
   position: relative;
   width: 90px;
   height: 90px;
   border: solid 4px #ddd;
 }
-.ttt-game .ttt-board-container .ttt-board .cell--1,
-.ttt-game .ttt-board-container .ttt-board .cell--2,
-.ttt-game .ttt-board-container .ttt-board .cell--3 {
+html .ttt-game-component .ttt-board-container .ttt-board .ttt-cell.cell--0,
+body .ttt-game-component .ttt-board-container .ttt-board .ttt-cell.cell--0,
+html .ttt-game-component .ttt-board-container .ttt-board .ttt-cell.cell--1,
+body .ttt-game-component .ttt-board-container .ttt-board .ttt-cell.cell--1,
+html .ttt-game-component .ttt-board-container .ttt-board .ttt-cell.cell--2,
+body .ttt-game-component .ttt-board-container .ttt-board .ttt-cell.cell--2 {
   border-top-color: transparent;
 }
-.ttt-game .ttt-board-container .ttt-board .cell--1,
-.ttt-game .ttt-board-container .ttt-board .cell--4,
-.ttt-game .ttt-board-container .ttt-board .cell--7 {
+html .ttt-game-component .ttt-board-container .ttt-board .ttt-cell.cell--0,
+body .ttt-game-component .ttt-board-container .ttt-board .ttt-cell.cell--0,
+html .ttt-game-component .ttt-board-container .ttt-board .ttt-cell.cell--3,
+body .ttt-game-component .ttt-board-container .ttt-board .ttt-cell.cell--3,
+html .ttt-game-component .ttt-board-container .ttt-board .ttt-cell.cell--6,
+body .ttt-game-component .ttt-board-container .ttt-board .ttt-cell.cell--6 {
   border-left-color: transparent;
 }
-.ttt-game .ttt-board-container .ttt-board .cell--3,
-.ttt-game .ttt-board-container .ttt-board .cell--6,
-.ttt-game .ttt-board-container .ttt-board .cell--9 {
+html .ttt-game-component .ttt-board-container .ttt-board .ttt-cell.cell--2,
+body .ttt-game-component .ttt-board-container .ttt-board .ttt-cell.cell--2,
+html .ttt-game-component .ttt-board-container .ttt-board .ttt-cell.cell--5,
+body .ttt-game-component .ttt-board-container .ttt-board .ttt-cell.cell--5,
+html .ttt-game-component .ttt-board-container .ttt-board .ttt-cell.cell--8,
+body .ttt-game-component .ttt-board-container .ttt-board .ttt-cell.cell--8 {
   border-right-color: transparent;
 }
-.ttt-game .ttt-board-container .ttt-board .cell--7,
-.ttt-game .ttt-board-container .ttt-board .cell--8,
-.ttt-game .ttt-board-container .ttt-board .cell--9 {
+html .ttt-game-component .ttt-board-container .ttt-board .ttt-cell.cell--6,
+body .ttt-game-component .ttt-board-container .ttt-board .ttt-cell.cell--6,
+html .ttt-game-component .ttt-board-container .ttt-board .ttt-cell.cell--7,
+body .ttt-game-component .ttt-board-container .ttt-board .ttt-cell.cell--7,
+html .ttt-game-component .ttt-board-container .ttt-board .ttt-cell.cell--8,
+body .ttt-game-component .ttt-board-container .ttt-board .ttt-cell.cell--8 {
   border-bottom-color: transparent;
 }
-.ttt-game .ttt-board-container .ttt-board .ttt-label {
+html .ttt-game-component .ttt-board-container .ttt-board .ttt-cell .ttt-label,
+body .ttt-game-component .ttt-board-container .ttt-board .ttt-cell .ttt-label {
   position: absolute;
   width: 100%;
   height: 100%;
   cursor: pointer;
   visibility: visible;
 }
-.ttt-game .ttt-board-container .ttt-board .label--x::before {
+html .ttt-game-component .ttt-board-container .ttt-board .ttt-cell .ttt-label:hover::before,
+body .ttt-game-component .ttt-board-container .ttt-board .ttt-cell .ttt-label:hover::before {
+  opacity: 1;
+}
+html .ttt-game-component .ttt-board-container .ttt-board .ttt-cell .ttt-label:hover::after,
+body .ttt-game-component .ttt-board-container .ttt-board .ttt-cell .ttt-label:hover::after {
+  opacity: 1;
+}
+html .ttt-game-component .ttt-board-container .ttt-board .ttt-cell .label--x::before,
+body .ttt-game-component .ttt-board-container .ttt-board .ttt-cell .label--x::before {
   content: "";
   position: absolute;
   left: 50%;
@@ -106,7 +132,8 @@ body {
   transform: translate(-50%, -50%) rotate(45deg);
   opacity: 0;
 }
-.ttt-game .ttt-board-container .ttt-board .label--x::after {
+html .ttt-game-component .ttt-board-container .ttt-board .ttt-cell .label--x::after,
+body .ttt-game-component .ttt-board-container .ttt-board .ttt-cell .label--x::after {
   content: "";
   position: absolute;
   left: 50%;
@@ -119,7 +146,8 @@ body {
   transform: translate(-50%, -50%) rotate(-45deg);
   opacity: 0;
 }
-.ttt-game .ttt-board-container .ttt-board .label--o::before {
+html .ttt-game-component .ttt-board-container .ttt-board .ttt-cell .label--o::before,
+body .ttt-game-component .ttt-board-container .ttt-board .ttt-cell .label--o::before {
   content: "";
   position: absolute;
   left: 50%;
@@ -131,13 +159,8 @@ body {
   transform: translate(-50%, -50%);
   opacity: 0;
 }
-.ttt-game .ttt-board-container .ttt-board .ttt-label:hover::before {
-  opacity: 1;
-}
-.ttt-game .ttt-board-container .ttt-board .ttt-label:hover::after {
-  opacity: 1;
-}
-.ttt-game .ttt-board-container .ttt-board .ttt-mark {
+html .ttt-game-component .ttt-board-container .ttt-board .ttt-cell .ttt-mark,
+body .ttt-game-component .ttt-board-container .ttt-board .ttt-cell .ttt-mark {
   position: absolute;
   width: 100%;
   height: 100%;
@@ -151,7 +174,8 @@ body {
     transform: scale(0) rotate(-15deg);
   }
 }
-.ttt-game .ttt-board-container .ttt-board .mark--o::before {
+html .ttt-game-component .ttt-board-container .ttt-board .ttt-cell .mark--o::before,
+body .ttt-game-component .ttt-board-container .ttt-board .ttt-cell .mark--o::before {
   content: "";
   position: absolute;
   left: 50%;
@@ -162,7 +186,8 @@ body {
   box-shadow: inset 0 0 0 12px #ef908c;
   transform: translate(-50%, -50%);
 }
-.ttt-game .ttt-board-container .ttt-board .mark--x::before {
+html .ttt-game-component .ttt-board-container .ttt-board .ttt-cell .mark--x::before,
+body .ttt-game-component .ttt-board-container .ttt-board .ttt-cell .mark--x::before {
   content: "";
   position: absolute;
   left: 50%;
@@ -174,7 +199,8 @@ body {
   transform-origin: center;
   transform: translate(-50%, -50%) rotate(45deg);
 }
-.ttt-game .ttt-board-container .ttt-board .mark--x::after {
+html .ttt-game-component .ttt-board-container .ttt-board .ttt-cell .mark--x::after,
+body .ttt-game-component .ttt-board-container .ttt-board .ttt-cell .mark--x::after {
   content: "";
   position: absolute;
   left: 50%;
@@ -186,39 +212,54 @@ body {
   transform-origin: center;
   transform: translate(-50%, -50%) rotate(-45deg);
 }
-.ttt-game .ttt-board-container .ttt-board input[value="1"]:checked ~ .cell--1 .ttt-mark {
+html .ttt-game-component .ttt-board-container .ttt-board input,
+body .ttt-game-component .ttt-board-container .ttt-board input {
+  display: none;
+}
+html .ttt-game-component .ttt-board-container .ttt-board input[value="0"]:checked ~ .cell--0 .ttt-mark,
+body .ttt-game-component .ttt-board-container .ttt-board input[value="0"]:checked ~ .cell--0 .ttt-mark {
   display: block;
 }
-.ttt-game .ttt-board-container .ttt-board input[value="2"]:checked ~ .cell--2 .ttt-mark {
+html .ttt-game-component .ttt-board-container .ttt-board input[value="1"]:checked ~ .cell--1 .ttt-mark,
+body .ttt-game-component .ttt-board-container .ttt-board input[value="1"]:checked ~ .cell--1 .ttt-mark {
   display: block;
 }
-.ttt-game .ttt-board-container .ttt-board input[value="3"]:checked ~ .cell--3 .ttt-mark {
+html .ttt-game-component .ttt-board-container .ttt-board input[value="2"]:checked ~ .cell--2 .ttt-mark,
+body .ttt-game-component .ttt-board-container .ttt-board input[value="2"]:checked ~ .cell--2 .ttt-mark {
   display: block;
 }
-.ttt-game .ttt-board-container .ttt-board input[value="4"]:checked ~ .cell--4 .ttt-mark {
+html .ttt-game-component .ttt-board-container .ttt-board input[value="3"]:checked ~ .cell--3 .ttt-mark,
+body .ttt-game-component .ttt-board-container .ttt-board input[value="3"]:checked ~ .cell--3 .ttt-mark {
   display: block;
 }
-.ttt-game .ttt-board-container .ttt-board input[value="5"]:checked ~ .cell--5 .ttt-mark {
+html .ttt-game-component .ttt-board-container .ttt-board input[value="4"]:checked ~ .cell--4 .ttt-mark,
+body .ttt-game-component .ttt-board-container .ttt-board input[value="4"]:checked ~ .cell--4 .ttt-mark {
   display: block;
 }
-.ttt-game .ttt-board-container .ttt-board input[value="6"]:checked ~ .cell--6 .ttt-mark {
+html .ttt-game-component .ttt-board-container .ttt-board input[value="5"]:checked ~ .cell--5 .ttt-mark,
+body .ttt-game-component .ttt-board-container .ttt-board input[value="5"]:checked ~ .cell--5 .ttt-mark {
   display: block;
 }
-.ttt-game .ttt-board-container .ttt-board input[value="7"]:checked ~ .cell--7 .ttt-mark {
+html .ttt-game-component .ttt-board-container .ttt-board input[value="6"]:checked ~ .cell--6 .ttt-mark,
+body .ttt-game-component .ttt-board-container .ttt-board input[value="6"]:checked ~ .cell--6 .ttt-mark {
   display: block;
 }
-.ttt-game .ttt-board-container .ttt-board input[value="8"]:checked ~ .cell--8 .ttt-mark {
+html .ttt-game-component .ttt-board-container .ttt-board input[value="7"]:checked ~ .cell--7 .ttt-mark,
+body .ttt-game-component .ttt-board-container .ttt-board input[value="7"]:checked ~ .cell--7 .ttt-mark {
   display: block;
 }
-.ttt-game .ttt-board-container .ttt-board input[value="9"]:checked ~ .cell--9 .ttt-mark {
+html .ttt-game-component .ttt-board-container .ttt-board input[value="8"]:checked ~ .cell--8 .ttt-mark,
+body .ttt-game-component .ttt-board-container .ttt-board input[value="8"]:checked ~ .cell--8 .ttt-mark {
   display: block;
 }
-.ttt-game .ttt-board-container .ttt-btn-bar {
+html .ttt-game-component .ttt-board-container .ttt-btn-bar,
+body .ttt-game-component .ttt-board-container .ttt-btn-bar {
   flex: 1 1 auto;
   text-align: center;
   margin-top: 40px;
 }
-.ttt-game .ttt-board-container .ttt-btn-bar .ttt-newGame {
+html .ttt-game-component .ttt-board-container .ttt-btn-bar .ttt-newGame,
+body .ttt-game-component .ttt-board-container .ttt-btn-bar .ttt-newGame {
   border: none;
   padding: 18px;
   text-transform: uppercase;
@@ -226,13 +267,15 @@ body {
   border-radius: 6px;
   font-weight: bold;
   color: #909090;
-  font-size: 12pt;
+  font-size: 12px;
   cursor: pointer;
 }
-.ttt-game .ttt-board-container .ttt-btn-bar .ttt-newGame:hover {
+html .ttt-game-component .ttt-board-container .ttt-btn-bar .ttt-newGame:hover,
+body .ttt-game-component .ttt-board-container .ttt-btn-bar .ttt-newGame:hover {
   opacity: 0.8;
 }
-.ttt-game .overlay {
+html .ttt-game-component .overlay,
+body .ttt-game-component .overlay {
   position: fixed;
   z-index: 2;
   top: 0;
@@ -241,7 +284,8 @@ body {
   height: 100vh;
   background-color: rgba(128, 128, 128, 0.5);
 }
-.ttt-game .overlay .ttt-endgame {
+html .ttt-game-component .overlay .ttt-endgame,
+body .ttt-game-component .overlay .ttt-endgame {
   position: absolute;
   left: 50%;
   top: 50%;
@@ -256,16 +300,18 @@ body {
   animation: endgame-entrance 0.3s 0.43s cubic-bezier(0, 0.8, 0.4, 1.2) both;
   padding-top: 10px;
 }
-.ttt-game .overlay .ttt-endgame .ttt-msg {
+html .ttt-game-component .overlay .ttt-endgame .ttt-msg,
+body .ttt-game-component .overlay .ttt-endgame .ttt-msg {
   display: block;
   text-align: center;
   margin: 50px;
   font-weight: bold;
-  font-size: 24pt;
+  font-size: 24px;
   line-height: 1.5;
   color: #777;
 }
-.ttt-game .overlay .ttt-endgame .ttt-tryAgain {
+html .ttt-game-component .overlay .ttt-endgame .ttt-tryAgain,
+body .ttt-game-component .overlay .ttt-endgame .ttt-tryAgain {
   border: none;
   margin: 20px;
   padding: 18px;
@@ -274,10 +320,11 @@ body {
   font-weight: bold;
   border-radius: 6px;
   color: #668870;
-  font-size: 12pt;
+  font-size: 12px;
   cursor: pointer;
 }
-.ttt-game .overlay .ttt-endgame .ttt-tryAgain:hover {
+html .ttt-game-component .overlay .ttt-endgame .ttt-tryAgain:hover,
+body .ttt-game-component .overlay .ttt-endgame .ttt-tryAgain:hover {
   opacity: 0.8;
 }
 @keyframes endgame-entrance {

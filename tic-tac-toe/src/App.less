@@ -4,6 +4,12 @@
 @ttt-hover-player-mark: #f4f4f4;
 @ttt-border-board: #ddd;
 @ttt-border-radius: 6px;
+
+
+@font-size-base: 24px;
+@font-size-small: 12px;
+// @import "./styles/variables.less";
+// @import "./styles//mixins.less";
 //TODO : split in separate files
 //const`s in separate file
 
@@ -16,326 +22,355 @@ body {
   min-width: 600px;
   min-height: 600px;
   font-family: sans-serif;
-}
 
-.ttt-game {
-  * {
-    box-sizing: border-box;
-  }
-
-  .ttt-playerTurnMessage {
-    text-align: center;
-    padding: 20px;
-    font-size: 24px;
-    color: @ttt-title-color;
-  }
-
-  .ttt-gameInfoComponent {
-    padding: 10px 20px;
-
-    .playerInfo {
-      display: block;
+  .ttt-game-component {
+    * {
+      box-sizing: border-box;
     }
-    .ttt-playerName {
-      font-size: 24px;
-      font-weight: bolder;
-      text-transform: uppercase;
+
+    .ttt-player-turn-message {
+      text-align: center;
+      padding: 20px;
+      font-size: @font-size-base;
+      color: @ttt-title-color;
     }
-    .ttt-playerMark {
-      font-size: 24px;
-      font-weight: bolder;
-    }
-    .ttt-playerWins {
-      font-size: 24px;
-      font-weight: bolder;
-      padding-left: 10px;
-    }
-  }
 
-  input {
-    display: none;
-  }
-
-  .ttt-title {
-    flex: 1 1 auto;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    color: @ttt-title-color;
-  }
-
-  .ttt-board-container {
-    display: flex;
-    flex-direction: column;
-    width: 100%;
-    height: 100%;
-
-    .ttt-board {
+    .ttt-title {
       flex: 1 1 auto;
-      display: grid;
-      grid-template: repeat(3, min-content) / repeat(3, min-content);
+      display: flex;
+      align-items: center;
       justify-content: center;
-      align-content: center;
+      color: @ttt-title-color;
+    }
 
-      .ttt-cell {
-        position: relative;
-        width: 90px;
-        height: 90px;
-        border: solid 4px @ttt-border-board;
-      }
+    .ttt-game-info-component {
+        padding: 10px 20px;
 
-      .cell--1,
-      .cell--2,
-      .cell--3 {
-        border-top-color: transparent;
-      }
+        .ttt-player-name {
+          font-size: @font-size-base;
+          font-weight: bolder;
+          text-transform: uppercase;
+        }
+        .ttt-player-mark {
+          font-size: @font-size-base;
+          font-weight: bolder;
+        }
+        .ttt-player-wins {
+          font-size: @font-size-base;
+          font-weight: bolder;
+          padding-left: 10px;
+        }
+      
+    }
 
-      .cell--1,
-      .cell--4,
-      .cell--7 {
-        border-left-color: transparent;
-      }
+    .ttt-board-container {
+      display: flex;
+      flex-direction: column;
+      width: 100%;
+      height: 100%;
 
-      .cell--3,
-      .cell--6,
-      .cell--9 {
-        border-right-color: transparent;
-      }
+      .ttt-board {
+        flex: 1 1 auto;
+        display: grid;
+        grid-template: repeat(3, min-content) / repeat(3, min-content);
+        justify-content: center;
+        align-content: center;
 
-      .cell--7,
-      .cell--8,
-      .cell--9 {
-        border-bottom-color: transparent;
-      }
+        .ttt-cell {
+          position: relative;
+          width: 90px;
+          height: 90px;
+          border: solid 4px @ttt-border-board;
 
-      .ttt-label {
-        position: absolute;
-        width: 100%;
-        height: 100%;
-        cursor: pointer;
-        visibility: visible;
-      }
+          &.cell--0,
+          &.cell--1,
+          &.cell--2 {
+            border-top-color: transparent;
+          }
 
-      .label--x::before {
-        content: "";
-        position: absolute;
-        left: 50%;
-        top: 50%;
-        width: 80%;
-        height: 12px;
-        border-radius: @ttt-border-radius;
-        background: @ttt-hover-player-mark;
-        transform-origin: center;
-        transform: translate(-50%, -50%) rotate(45deg);
-        opacity: 0;
-      }
+          &.cell--0,
+          &.cell--3,
+          &.cell--6 {
+            border-left-color: transparent;
+          }
 
-      .label--x::after {
-        content: "";
-        position: absolute;
-        left: 50%;
-        top: 50%;
-        width: 80%;
-        height: 12px;
-        border-radius: @ttt-border-radius;
-        background: @ttt-hover-player-mark;
-        transform-origin: center;
-        transform: translate(-50%, -50%) rotate(-45deg);
-        opacity: 0;
-      }
+          &.cell--2,
+          &.cell--5,
+          &.cell--8 {
+            border-right-color: transparent;
+          }
 
-      .label--o::before {
-        content: "";
-        position: absolute;
-        left: 50%;
-        top: 50%;
-        width: 80%;
-        height: 80%;
-        border-radius: 50%;
-        box-shadow: inset 0 0 0 12px @ttt-hover-player-mark;
-        transform: translate(-50%, -50%);
-        opacity: 0;
-      }
+          &.cell--6,
+          &.cell--7,
+          &.cell--8 {
+            border-bottom-color: transparent;
+          }
 
-      .ttt-label:hover::before {
-        opacity: 1;
-      }
+          .ttt-label {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            cursor: pointer;
+            visibility: visible;
 
-      .ttt-label:hover::after {
-        opacity: 1;
-      }
+            &:hover {
+              &::before {
+                opacity: 1;
+              }
+              &::after {
+                opacity: 1;
+              }
+            }
+          }
 
-      .ttt-mark {
-        position: absolute;
-        width: 100%;
-        height: 100%;
-        z-index: 1;
-        display: none;
-        animation: mark-entrance cubic-bezier(0, 0.8, 0.2, 1.2) both;
-      }
+          .label {
+            &--x {
+              &::before {
+                content: "";
+                position: absolute;
+                left: 50%;
+                top: 50%;
+                width: 80%;
+                height: 12px;
+                border-radius: @ttt-border-radius;
+                background: @ttt-hover-player-mark;
+                transform-origin: center;
+                transform: translate(-50%, -50%) rotate(45deg);
+                opacity: 0;
+              }
 
-      @keyframes mark-entrance {
-        from {
-          opacity: 0;
-          transform: scale(0) rotate(-15deg);
+              &::after {
+                content: "";
+                position: absolute;
+                left: 50%;
+                top: 50%;
+                width: 80%;
+                height: 12px;
+                border-radius: @ttt-border-radius;
+                background: @ttt-hover-player-mark;
+                transform-origin: center;
+                transform: translate(-50%, -50%) rotate(-45deg);
+                opacity: 0;
+              }
+            }
+
+            &--o {
+              &::before {
+                content: "";
+                position: absolute;
+                left: 50%;
+                top: 50%;
+                width: 80%;
+                height: 80%;
+                border-radius: 50%;
+                box-shadow: inset 0 0 0 12px @ttt-hover-player-mark;
+                transform: translate(-50%, -50%);
+                opacity: 0;
+              }
+            }
+          }
+
+          .ttt-mark {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            z-index: 1;
+            display: none;
+            animation: mark-entrance cubic-bezier(0, 0.8, 0.2, 1.2) both;
+          }
+
+          @keyframes mark-entrance {
+            from {
+              opacity: 0;
+              transform: scale(0) rotate(-15deg);
+            }
+          }
+
+          .mark {
+            &--o {
+              &::before {
+                content: "";
+                position: absolute;
+                left: 50%;
+                top: 50%;
+                width: 80%;
+                height: 80%;
+                border-radius: 50%;
+                box-shadow: inset 0 0 0 12px @ttt-second-player-mark;
+                transform: translate(-50%, -50%);
+              }
+            }
+
+            &--x {
+              &::before {
+                content: "";
+                position: absolute;
+                left: 50%;
+                top: 50%;
+                width: 80%;
+                height: 12px;
+                border-radius: @ttt-border-radius;
+                background: @ttt-first-player-mark;
+                transform-origin: center;
+                transform: translate(-50%, -50%) rotate(45deg);
+              }
+
+              &::after {
+                content: "";
+                position: absolute;
+                left: 50%;
+                top: 50%;
+                width: 80%;
+                height: 12px;
+                border-radius: @ttt-border-radius;
+                background: @ttt-first-player-mark;
+                transform-origin: center;
+                transform: translate(-50%, -50%) rotate(-45deg);
+              }
+            }
+          }
+        }
+
+        input {
+          display: none;
+
+          &[value="0"] {
+            &:checked ~ .cell--0 .ttt-mark {
+              display: block;
+            }
+          }
+
+          &[value="1"] {
+            &:checked ~ .cell--1 .ttt-mark {
+              display: block;
+            }
+          }
+
+          &[value="2"] {
+            &:checked ~ .cell--2 .ttt-mark {
+              display: block;
+            }
+          }
+
+          &[value="3"] {
+            &:checked ~ .cell--3 .ttt-mark {
+              display: block;
+            }
+          }
+
+          &[value="4"] {
+            &:checked ~ .cell--4 .ttt-mark {
+              display: block;
+            }
+          }
+
+          &[value="5"] {
+            &:checked ~ .cell--5 .ttt-mark {
+              display: block;
+            }
+          }
+
+          &[value="6"] {
+            &:checked ~ .cell--6 .ttt-mark {
+              display: block;
+            }
+          }
+
+          &[value="7"] {
+            &:checked ~ .cell--7 .ttt-mark {
+              display: block;
+            }
+          }
+
+          &[value="8"] {
+            &:checked ~ .cell--8 .ttt-mark {
+              display: block;
+            }
+          }
         }
       }
 
-      .mark--o::before {
-        content: "";
-        position: absolute;
-        left: 50%;
-        top: 50%;
-        width: 80%;
-        height: 80%;
-        border-radius: 50%;
-        box-shadow: inset 0 0 0 12px @ttt-second-player-mark;
-        transform: translate(-50%, -50%);
-      }
-
-      .mark--x::before {
-        content: "";
-        position: absolute;
-        left: 50%;
-        top: 50%;
-        width: 80%;
-        height: 12px;
-        border-radius: @ttt-border-radius;
-        background: @ttt-first-player-mark;
-        transform-origin: center;
-        transform: translate(-50%, -50%) rotate(45deg);
-      }
-
-      .mark--x::after {
-        content: "";
-        position: absolute;
-        left: 50%;
-        top: 50%;
-        width: 80%;
-        height: 12px;
-        border-radius: @ttt-border-radius;
-        background: @ttt-first-player-mark;
-        transform-origin: center;
-        transform: translate(-50%, -50%) rotate(-45deg);
-      }
-
-      //TODO use main class
-      input[value="1"]:checked ~ .cell--1 .ttt-mark {
-        display: block;
-      }
-
-      input[value="2"]:checked ~ .cell--2 .ttt-mark {
-        display: block;
-      }
-
-      input[value="3"]:checked ~ .cell--3 .ttt-mark {
-        display: block;
-      }
-
-      input[value="4"]:checked ~ .cell--4 .ttt-mark {
-        display: block;
-      }
-
-      input[value="5"]:checked ~ .cell--5 .ttt-mark {
-        display: block;
-      }
-
-      input[value="6"]:checked ~ .cell--6 .ttt-mark {
-        display: block;
-      }
-
-      input[value="7"]:checked ~ .cell--7 .ttt-mark {
-        display: block;
-      }
-
-      input[value="8"]:checked ~ .cell--8 .ttt-mark {
-        display: block;
-      }
-
-      input[value="9"]:checked ~ .cell--9 .ttt-mark {
-        display: block;
-      }
-    }
-
-    .ttt-btn-bar {
-      flex: 1 1 auto;
-      text-align: center;
-      margin-top: 40px;
-
-      .ttt-newGame {
-        border: none;
-        padding: 18px;
-        text-transform: uppercase;
-        background: #d6d6d6;
-        border-radius: 6px;
-        font-weight: bold;
-        color: #909090;
-        font-size: 12pt;
-        cursor: pointer;
-      }
-
-      .ttt-newGame:hover {
-        opacity: 0.8;
-      }
-    }
-  }
-
-  .overlay {
-    position: fixed;
-    z-index: 2;
-    top: 0;
-    left: 0;
-    width: 100vw;
-    height: 100vh;
-    background-color: rgba(128, 128, 128, 0.5);
-
-    .ttt-endgame {
-      position: absolute;
-      left: 50%;
-      top: 50%;
-      width: 400px;
-      height: 300px;
-      border-radius: 6px;
-      background: white;
-      box-shadow: 0 0 120px #0002;
-      transform: translate(-50%, -50%);
-      text-align: center;
-      z-index: 1000;
-      animation: endgame-entrance 0.3s 0.43s cubic-bezier(0, 0.8, 0.4, 1.2) both;
-      padding-top: 10px;
-
-      .ttt-msg {
-        display: block;
+      .ttt-btn-bar {
+        flex: 1 1 auto;
         text-align: center;
-        margin: 50px;
-        font-weight: bold;
-        font-size: 24pt;
-        line-height: 1.5;
-        color: #777;
-      }
+        margin-top: 40px;
 
-      .ttt-tryAgain {
-        border: none;
-        margin: 20px;
-        padding: 18px;
-        text-transform: uppercase;
-        background: #d8eec0;
-        font-weight: bold;
-        border-radius: 6px;
-        color: #668870;
-        font-size: 12pt;
-        cursor: pointer;
-      }
+        .ttt-newGame {
+          border: none;
+          padding: 18px;
+          text-transform: uppercase;
+          background: #d6d6d6;
+          border-radius: 6px;
+          font-weight: bold;
+          color: #909090;
+          font-size: @font-size-small;
+          cursor: pointer;
 
-      .ttt-tryAgain:hover {
-        opacity: 0.8;
+          &:hover {
+            opacity: 0.8;
+          }
+        }
       }
     }
 
-    @keyframes endgame-entrance {
-      from {
-        opacity: 0;
-        transform: translate(-50%, -50%) scale(0.5);
+    .overlay {
+      position: fixed;
+      z-index: 2;
+      top: 0;
+      left: 0;
+      width: 100vw;
+      height: 100vh;
+      background-color: rgba(128, 128, 128, 0.5);
+
+      .ttt-endgame {
+        position: absolute;
+        left: 50%;
+        top: 50%;
+        width: 400px;
+        height: 300px;
+        border-radius: 6px;
+        background: white;
+        box-shadow: 0 0 120px #0002;
+        transform: translate(-50%, -50%);
+        text-align: center;
+        z-index: 1000;
+        animation: endgame-entrance 0.3s 0.43s cubic-bezier(0, 0.8, 0.4, 1.2)
+          both;
+        padding-top: 10px;
+
+        .ttt-msg {
+          display: block;
+          text-align: center;
+          margin: 50px;
+          font-weight: bold;
+          font-size: @font-size-base;
+          line-height: 1.5;
+          color: #777;
+        }
+
+        .ttt-tryAgain {
+          border: none;
+          margin: 20px;
+          padding: 18px;
+          text-transform: uppercase;
+          background: #d8eec0;
+          font-weight: bold;
+          border-radius: 6px;
+          color: #668870;
+          font-size: @font-size-small;
+          cursor: pointer;
+
+          &:hover {
+            opacity: 0.8;
+          }
+        }
+      }
+
+      @keyframes endgame-entrance {
+        from {
+          opacity: 0;
+          transform: translate(-50%, -50%) scale(0.5);
+        }
       }
     }
   }

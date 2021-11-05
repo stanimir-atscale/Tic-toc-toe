@@ -1,10 +1,3 @@
-//type - Props  ---
-// move sub components in game components folder ---
-// check order of elements class of constitution  ---
-// use methods not anonymous function ---
-// check react events types return  --- 
-//TODO use in html with && ---
-
 import React, { Component } from "react";
 import { inject, observer } from "mobx-react";
 import Store from "../../stores/GameStore";
@@ -21,22 +14,14 @@ type Props = {
 @inject("store")
 @observer
 export class GameComponent extends Component<Props> {
-  constructor(props: Props) {
-    super(props);
-    this.handleCheckboxChange = this.handleCheckboxChange.bind(this);
-    this.handleResetBoardClick = this.handleResetBoardClick.bind(this);
-    this.handleClickNewGame = this.handleClickNewGame.bind(this);
-    this.handleClickNewGame = this.handleClickNewGame.bind(this);
-  }
-
   render() {
     return (
-      <div className="ttt-game">
+      <div className="ttt-game-component">
         <h1 className="ttt-title">TIC TAC TOE</h1>
         <div className="ttt-title">{this.renderGameInfo()}</div>
 
         {this.props.store?.currentPlayer.name && (
-          <div className="ttt-playerTurnMessage">
+          <div className="ttt-player-turn-message">
             Is {this.props.store?.currentPlayer.name} turn!
           </div>
         )}
@@ -44,15 +29,26 @@ export class GameComponent extends Component<Props> {
         <div className="ttt-board-container">
           <div className="ttt-board">{this.renderCells()}</div>
           <div className="ttt-btn-bar">
-            <button className="ttt-newGame" onClick={this.handleClickNewGame}>
+            <button
+              className="ttt-newGame"
+              onClick={(
+                event: React.MouseEvent<HTMLButtonElement, MouseEvent>
+              ) => {
+                this.handleClickNewGame(event);
+              }}
+            >
               New game
-            </button>  
+            </button>
           </div>
         </div>
         {this.props.store?.gameParams.isGameFinished && (
           <EndGameComponent
             winnerName={this.props.store?.gameParams.winnerName}
-            onClick={this.handleResetBoardClick}
+            onClick={(
+              event: React.MouseEvent<HTMLButtonElement, MouseEvent>
+            ) => {
+              this.handleResetBoardClick(event);
+            }}
           />
         )}
       </div>
@@ -71,7 +67,9 @@ export class GameComponent extends Component<Props> {
         <CellComponent
           cell={cell}
           currentPlayerMark={this.props.store?.currentPlayer.mark || "x"}
-          onChange={this.handleCheckboxChange}
+          onChange={(event: React.ChangeEvent<HTMLInputElement>) => {
+            this.handleCheckboxChange(event);
+          }}
           key={cell.id}
         />
       );
@@ -80,14 +78,13 @@ export class GameComponent extends Component<Props> {
 
   private handleCheckboxChange(event: React.ChangeEvent<HTMLInputElement>) {
     this.props.store?.board.updateCellProperty(
-      event.target.id,
+      Number(event.target.id),
       this.props.store?.currentPlayer.id.toString()
     );
 
-    const isCurrentPlayerWin =
-      this.props.store?.board.checkCurrentPlayerWin(
-        this.props.store?.currentPlayer.id
-      );
+    const isCurrentPlayerWin = this.props.store?.board.checkCurrentPlayerWin(
+      this.props.store?.currentPlayer.id
+    );
 
     if (isCurrentPlayerWin === "-1") {
       this.props.store?.setGameFinished("");
@@ -96,9 +93,7 @@ export class GameComponent extends Component<Props> {
 
     if (isCurrentPlayerWin) {
       this.props.store?.setGameFinished(this.props.store?.currentPlayer.name);
-      this.props.store?.increasePlayerWins(
-        this.props.store?.currentPlayer.id
-      );
+      this.props.store?.increasePlayerWins(this.props.store?.currentPlayer.id);
       return;
     }
 

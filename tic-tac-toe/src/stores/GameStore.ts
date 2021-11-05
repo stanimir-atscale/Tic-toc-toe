@@ -1,21 +1,18 @@
 import { action, makeAutoObservable, observable } from "mobx";
 import { IGameParams } from "./interfaces/IGameParams";
 import { IPlayer } from "./interfaces/IPlayer";
-import { BoardStore } from "./BoardStore";
+import { Board } from "./Board";
 import mockedPlayers from "./models/players.json"
 import mockedGameParams from "./models/game-params.json";
 
-//TODO remove playerStore , and rename board store to Board  ---
-// Store => GameStore ---
-
 export default class GameStore {
-  board: BoardStore;
+  board: Board;
   @observable players: Array<IPlayer>
   @observable currentPlayer: IPlayer;
   @observable gameParams: IGameParams;
 
   constructor() {
-    this.board = new BoardStore();
+    this.board = new Board();
     this.players = mockedPlayers.players;
     this.currentPlayer = this.players[0];
     this.gameParams = mockedGameParams;

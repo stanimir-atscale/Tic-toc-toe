@@ -1,4 +1,4 @@
 export type ICell = {
-    id: string,
+    id: number,
     playerId: string
 }
