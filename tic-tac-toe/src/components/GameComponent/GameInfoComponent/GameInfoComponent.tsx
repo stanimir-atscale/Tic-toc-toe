@@ -1,7 +1,7 @@
 import "./game-info-component.css"
 import { observer } from "mobx-react";
 import { Component } from "react";
-import { IPlayer } from "../../../stores/interfaces/IPlayer";
+import { IPlayer } from "../../../interfaces/IPlayer";
 
 type Props = {
   player: IPlayer;

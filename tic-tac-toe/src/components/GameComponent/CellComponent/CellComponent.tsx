@@ -1,7 +1,7 @@
 import "./cell-component.css";
 import { observer } from "mobx-react";
 import React, { Component } from "react";
-import { ICell } from "../../../stores/interfaces/ICell";
+import { ICell } from "../../../interfaces/ICell";
 
 type Props = {
   cell: ICell;

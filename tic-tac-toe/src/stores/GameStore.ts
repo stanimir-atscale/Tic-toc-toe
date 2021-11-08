@@ -1,6 +1,6 @@
 import { action, makeAutoObservable, observable } from "mobx";
-import { IGameParams } from "./interfaces/IGameParams";
-import { IPlayer } from "./interfaces/IPlayer";
+import { IGameParams } from "../interfaces/IGameParams";
+import { IPlayer } from "../interfaces/IPlayer";
 import { Board } from "./Board";
 import mockedPlayers from "./models/players.json"
 import mockedGameParams from "./models/game-params.json";

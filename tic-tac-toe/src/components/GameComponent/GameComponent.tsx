@@ -3,10 +3,11 @@ import React, { Component } from "react";
 import { inject, observer } from "mobx-react";
 import Store from "../../stores/GameStore";
 import { CellComponent } from "./CellComponent/CellComponent";
-import { ICell } from "../../stores/interfaces/ICell";
+import { ICell } from "../../interfaces/ICell";
 import { GameInfoComponent } from "./GameInfoComponent/GameInfoComponent";
-import { IPlayer } from "../../stores/interfaces/IPlayer";
+import { IPlayer } from "../../interfaces/IPlayer";
 import { EndGameComponent } from "./EndGameComponent/EndGameComponent";
+import { Game } from "../../enums/Game";
 
 type Props = {
   store?: Store;
@@ -83,22 +84,27 @@ export class GameComponent extends Component<Props> {
       this.props.store?.currentPlayer.id
     );
 
-    const isCurrentPlayerWin = this.props.store?.board.checkCurrentPlayerWin(
+    const gameCondition = this.props.store?.board.checkGameOverCondition(
       this.props.store?.currentPlayer.id
     );
 
-    if (isCurrentPlayerWin === "-1") {
-      this.props.store?.setGameFinished("");
-      return;
+    switch (gameCondition) {
+      case Game.Draw: {
+        this.props.store?.setGameFinished("");
+        break;
+      }
+      case Game.Win: {
+        this.props.store?.setGameFinished(this.props.store?.currentPlayer.name);
+        this.props.store?.increasePlayerWins(
+          this.props.store?.currentPlayer.id
+        );
+        break;
+      }
+      default: {
+        this.props.store?.changeCurrentPlayer();
+        break;
+      }
     }
-
-    if (isCurrentPlayerWin) {
-      this.props.store?.setGameFinished(this.props.store?.currentPlayer.name);
-      this.props.store?.increasePlayerWins(this.props.store?.currentPlayer.id);
-      return;
-    }
-
-    this.props.store?.changeCurrentPlayer();
   }
 
   private handleResetBoardClick(event: React.MouseEvent<HTMLButtonElement>) {
