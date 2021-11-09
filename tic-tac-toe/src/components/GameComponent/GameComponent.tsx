@@ -7,7 +7,6 @@ import { ICell } from "../../interfaces/ICell";
 import { GameInfoComponent } from "./GameInfoComponent/GameInfoComponent";
 import { IPlayer } from "../../interfaces/IPlayer";
 import { EndGameComponent } from "./EndGameComponent/EndGameComponent";
-import { Game } from "../../enums/Game";
 
 type Props = {
   store?: Store;
@@ -88,23 +87,7 @@ export class GameComponent extends Component<Props> {
       this.props.store?.currentPlayer.id
     );
 
-    switch (gameCondition) {
-      case Game.Draw: {
-        this.props.store?.setGameFinished("");
-        break;
-      }
-      case Game.Win: {
-        this.props.store?.setGameFinished(this.props.store?.currentPlayer.name);
-        this.props.store?.increasePlayerWins(
-          this.props.store?.currentPlayer.id
-        );
-        break;
-      }
-      default: {
-        this.props.store?.changeCurrentPlayer();
-        break;
-      }
-    }
+    this.props.store?.gameOver(gameCondition);
   }
 
   private handleResetBoardClick(event: React.MouseEvent<HTMLButtonElement>) {
