@@ -1,15 +1,15 @@
 import "./game-component.css";
 import React, { Component } from "react";
 import { inject, observer } from "mobx-react";
-import Store from "../../stores/GameStore";
-import { CellComponent } from "./CellComponent/CellComponent";
+import GameStore from "../../stores/GameStore";
 import { ICell } from "../../interfaces/ICell";
-import { GameInfoComponent } from "./GameInfoComponent/GameInfoComponent";
 import { IPlayer } from "../../interfaces/IPlayer";
+import { CellComponent } from "./CellComponent/CellComponent";
+import { GameInfoComponent } from "./GameInfoComponent/GameInfoComponent";
 import { EndGameComponent } from "./EndGameComponent/EndGameComponent";
 
 type Props = {
-  store?: Store;
+  store?: GameStore;
 };
 
 @inject("store")

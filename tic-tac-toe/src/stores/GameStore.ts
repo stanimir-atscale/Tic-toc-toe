@@ -20,14 +20,6 @@ export default class GameStore {
     makeAutoObservable(this);
   }
 
-  @action changeCurrentPlayer() {
-    if (this.currentPlayer.id === 0) {
-      this.currentPlayer = this.players[1];
-    } else {
-      this.currentPlayer = this.players[0];
-    }
-  }
-
   @action resetCurrentPlayer() {
     this.currentPlayer = this.players[0];
   }
@@ -54,6 +46,14 @@ export default class GameStore {
         this.changeCurrentPlayer();
         break;
       }
+    }
+  }
+
+  private changeCurrentPlayer() {
+    if (this.currentPlayer.id === 0) {
+      this.currentPlayer = this.players[1];
+    } else {
+      this.currentPlayer = this.players[0];
     }
   }
 
