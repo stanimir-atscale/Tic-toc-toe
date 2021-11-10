@@ -63,15 +63,16 @@ export class GameComponent extends Component<Props> {
   }
 
   private renderCells() {
-    return this.props.store?.board.cells.map((cell: ICell) => {
+    return this.props.store?.board.cells.map((cell: ICell, index:number) => {
       return (
         <CellComponent
           cell={cell}
+          cellIndex = {index}
           currentPlayerMark={this.props.store?.currentPlayer.mark || "x"}
           onChange={(event: React.ChangeEvent<HTMLInputElement>) => {
             this.handleCheckboxChange(event);
           }}
-          key={cell.id}
+          key={index}
         />
       );
     });

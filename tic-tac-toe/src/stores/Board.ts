@@ -11,15 +11,12 @@ export class Board {
 
   constructor() {
     this.cells = this.createCellArray(CELL_COUNT);
-    this.matrixCheck = this.createMatrixFromCellsIds(
-      this.cells,
-      this.minPlayerTurnsCountToWin
-    );
+    this.matrixCheck = this.createMatrixFromCellsIds();
     makeAutoObservable(this);
   }
 
   @action updateCellProperty(cellId: number, playerId: number) {
-    const cellIndex = this.cells.findIndex((cell) => cell.id === cellId);
+    const cellIndex = this.cells.findIndex((cell, index) => index === cellId);
 
     if (!this.cells[cellIndex].playerId) {
       this.cells[cellIndex].playerId = playerId;
@@ -30,6 +27,24 @@ export class Board {
     return this.cells.map((cell: ICell) => {
       return (cell.playerId = null);
     });
+  }
+// playerTurnIndexArray = [
+    //   [0, 1, 1],
+    //   [1, 0, 0],
+    //   [0, 0, 1],
+    // ]
+  createCellArray(arrayLength: number, playerTurnIndexArray?: Array<number>) {
+    const cells = [];
+    if (!playerTurnIndexArray) {
+      for (let i = 0; i < arrayLength; i++) {
+        cells.push({ playerId: null });
+      }
+    }else {
+      for (let i = 0; i < arrayLength; i++) {
+        cells.push({ playerId: null });
+      }
+    }
+    return cells;
   }
 
   checkGameOverCondition(currentPlayerId: number): number {
@@ -65,7 +80,7 @@ export class Board {
     return gameOverCondition;
   }
 
-  private createMatrixFromCellsIds(arr: Array<ICell>, sideWidth: number) {
+  private createMatrixFromCellsIds() {
     return [
       [0, 1, 2],
       [3, 4, 5],
@@ -76,13 +91,5 @@ export class Board {
       [0, 4, 8],
       [2, 4, 6],
     ];
-  }
-
-  private createCellArray(arrayLength: number) {
-    const cells = [];
-    for (let i = 0; i < arrayLength; i++) {
-      cells.push({ id: i, playerId: null });
-    }
-    return cells;
   }
 }

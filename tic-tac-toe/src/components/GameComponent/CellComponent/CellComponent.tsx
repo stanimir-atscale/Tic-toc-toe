@@ -5,6 +5,7 @@ import { ICell } from "../../../interfaces/ICell";
 
 type Props = {
   cell: ICell;
+  cellIndex: number;
   currentPlayerMark: string;
   onChange: React.ChangeEventHandler<HTMLInputElement>;
 };
@@ -12,7 +13,7 @@ type Props = {
 @observer
 export class CellComponent extends Component<Props> {
   render() {
-    const { cell, currentPlayerMark, onChange } = this.props;
+    const { cell, cellIndex, currentPlayerMark, onChange } = this.props;
     let mark = "";
     if (typeof cell.playerId === "number") {
       mark = cell.playerId === 0 ? "x" : "o";
@@ -21,18 +22,18 @@ export class CellComponent extends Component<Props> {
     return (
       <>
         <input
-          id={cell.id.toString()}
+          id={cellIndex.toString()}
           type="radio"
-          value={cell.id.toString()}
+          value={cellIndex.toString()}
           checked={!!mark}
           onChange={onChange}
         />
 
-        <div className={`${"ttt-cell cell--" + cell.id}`}>
+        <div className={`${"ttt-cell cell--" + cellIndex}`}>
           <div className={"ttt-mark mark--" + mark}></div>
           <label
             className={"ttt-label label--" + currentPlayerMark}
-            htmlFor={cell.id.toString()}
+            htmlFor={cellIndex.toString()}
           />
         </div>
       </>
