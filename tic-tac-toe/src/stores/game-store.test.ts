@@ -2,73 +2,12 @@ import { Game } from "../enums/Game";
 import GameStore from "./GameStore";
 
 const store = new GameStore();
-// TODO use method to generate cell array by length and array with indexes
-const mockDrawBoardCells = [
-  { playerId: 0 },
-  { playerId: 1 },
-  { playerId: 1 },
-  { playerId: 1 },
-  { playerId: 0 },
-  { playerId: 0 },
-  { playerId: 0 },
-  { playerId: 0 },
-  { playerId: 1 },
-];
-const mockContinuePlayBoardCells = [
-  { playerId: 0 },
-  { playerId: 0 },
-  { playerId: null },
-  { playerId: 1 },
-  { playerId: 1 },
-  { playerId: 0 },
-  { playerId: 1 },
-  { playerId: 0 },
-  { playerId: null },
-];
-const mockPlayerHorizontalWinBoardCells = [
-  { playerId: 0 },
-  { playerId: 0 },
-  { playerId: 0 },
-  { playerId: 1 },
-  { playerId: 1 },
-  { playerId: null },
-  { playerId: null },
-  { playerId: null },
-  { playerId: null },
-];
-const mockPlayerVerticalWinBoardCells = [
-  { playerId: 0 },
-  { playerId: 1 },
-  { playerId: null },
-  { playerId: 0 },
-  { playerId: 1 },
-  { playerId: null },
-  { playerId: 0 },
-  { playerId: null },
-  { playerId: null },
-];
-const mockPlayerFirstDiagonalWinBoardCells = [
-  { playerId: 0 },
-  { playerId: 1 },
-  { playerId: null },
-  { playerId: 1 },
-  { playerId: 0 },
-  { playerId: null },
-  { playerId: null },
-  { playerId: null },
-  { playerId: 0 },
-];
-const mockPlayerSecondDiagonalWinBoardCells = [
-  { playerId: null },
-  { playerId: 1 },
-  { playerId: 0 },
-  { playerId: 1 },
-  { playerId: 0 },
-  { playerId: null },
-  { playerId: 0 },
-  { playerId: null },
-  { playerId: null },
-];
+const mockDrawBoardCells = store.board.createCellArray(9, [0,1,1,1,0,0,0,0,1]);
+const mockContinuePlayBoardCells = store.board.createCellArray(9, [0,0,null,1,1,0,1,0,null]);
+const mockPlayerHorizontalWinBoardCells = store.board.createCellArray(9, [0,0,0,1,1,null,null,null,null]);
+const mockPlayerVerticalWinBoardCells = store.board.createCellArray(9, [0,1,null,0,1,null,0,null,null]);
+const mockPlayerFirstDiagonalWinBoardCells = store.board.createCellArray(9, [0,1,null,1,0,null,null,null,0]);
+const mockPlayerSecondDiagonalWinBoardCells = store.board.createCellArray(9, [null,1,0,1,0,null,0,null,null]);
 const currentPlayerId = 0;
 const gameParamsOnDraw = {
   isGameFinished: true,

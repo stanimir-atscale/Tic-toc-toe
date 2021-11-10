@@ -2,17 +2,7 @@ import GameStore from "./GameStore";
 
 const store = new GameStore();
 
-const mockBoardCells = [
-  { playerId: null },
-  { playerId: null },
-  { playerId: null },
-  { playerId: null },
-  { playerId: null },
-  { playerId: null },
-  { playerId: null },
-  { playerId: null },
-  { playerId: null },
-];
+const mockBoardCells = store.board.createCellArray(9);
 
 const clickedCellId = 0;
 const playerId = 0;
@@ -24,6 +14,6 @@ describe("Game Store", () => {
     const clickedCell = store.board.cells.find(
       (cell, i) => i === clickedCellId
     );
-    expect(clickedCell?.playerId).toBe(playerId);
+    expect(clickedCell).toBe(playerId);
   });
 });

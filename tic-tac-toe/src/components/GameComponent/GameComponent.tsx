@@ -2,7 +2,6 @@ import "./game-component.css";
 import React, { Component } from "react";
 import { inject, observer } from "mobx-react";
 import GameStore from "../../stores/GameStore";
-import { ICell } from "../../interfaces/ICell";
 import { IPlayer } from "../../interfaces/IPlayer";
 import { CellComponent } from "./CellComponent/CellComponent";
 import { GameInfoComponent } from "./GameInfoComponent/GameInfoComponent";
@@ -63,10 +62,10 @@ export class GameComponent extends Component<Props> {
   }
 
   private renderCells() {
-    return this.props.store?.board.cells.map((cell: ICell, index:number) => {
+    return this.props.store?.board.cells.map((cell: number | null, index:number) => {
       return (
         <CellComponent
-          cell={cell}
+          playerId={cell}
           cellIndex = {index}
           currentPlayerMark={this.props.store?.currentPlayer.mark || "x"}
           onChange={(event: React.ChangeEvent<HTMLInputElement>) => {

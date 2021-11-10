@@ -1,10 +1,9 @@
 import "./cell-component.css";
 import { observer } from "mobx-react";
 import React, { Component } from "react";
-import { ICell } from "../../../interfaces/ICell";
 
 type Props = {
-  cell: ICell;
+  playerId: number | null;
   cellIndex: number;
   currentPlayerMark: string;
   onChange: React.ChangeEventHandler<HTMLInputElement>;
@@ -13,10 +12,10 @@ type Props = {
 @observer
 export class CellComponent extends Component<Props> {
   render() {
-    const { cell, cellIndex, currentPlayerMark, onChange } = this.props;
+    const { playerId, cellIndex, currentPlayerMark, onChange } = this.props;
     let mark = "";
-    if (typeof cell.playerId === "number") {
-      mark = cell.playerId === 0 ? "x" : "o";
+    if (typeof playerId === "number") {
+      mark = playerId === 0 ? "x" : "o";
     };
 
     return (

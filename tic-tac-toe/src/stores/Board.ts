@@ -1,10 +1,9 @@
 import { action, makeAutoObservable, observable } from "mobx";
 import { Game } from "../enums/Game";
-import { ICell } from "../interfaces/ICell";
 
 const CELL_COUNT = 9;
 export class Board {
-  @observable cells: Array<ICell>;
+  @observable cells: Array<number | null>;
   private minPlayerTurnsCountToWin = Math.sqrt(CELL_COUNT);
   private maxPlayerTurnsCountToWin = Math.floor(CELL_COUNT / 2 + 1);
   private matrixCheck: Array<Array<number>>;
@@ -18,32 +17,29 @@ export class Board {
   @action updateCellProperty(cellId: number, playerId: number) {
     const cellIndex = this.cells.findIndex((cell, index) => index === cellId);
 
-    if (!this.cells[cellIndex].playerId) {
-      this.cells[cellIndex].playerId = playerId;
+    if (!this.cells[cellIndex]) {
+      this.cells[cellIndex] = playerId;
     }
   }
 
   @action resetBoard() {
-    return this.cells.map((cell: ICell) => {
-      return (cell.playerId = null);
-    });
+    this.cells = this.createCellArray(CELL_COUNT);
   }
-// playerTurnIndexArray = [
-    //   [0, 1, 1],
-    //   [1, 0, 0],
-    //   [0, 0, 1],
-    // ]
-  createCellArray(arrayLength: number, playerTurnIndexArray?: Array<number>) {
-    const cells = [];
+
+  createCellArray(
+    arrayLength: number,
+    playerTurnIndexArray?: Array<number | null>
+  ): Array<number | null> {
+    let cells = [];
     if (!playerTurnIndexArray) {
       for (let i = 0; i < arrayLength; i++) {
-        cells.push({ playerId: null });
+        cells.push(null);
       }
-    }else {
-      for (let i = 0; i < arrayLength; i++) {
-        cells.push({ playerId: null });
-      }
+      return cells;
     }
+
+    cells = playerTurnIndexArray;
+
     return cells;
   }
 
@@ -51,8 +47,8 @@ export class Board {
     let gameOverCondition = Game.Continue;
     let currentPlayerMarkCount = 0;
 
-    this.cells.forEach((cell: ICell) => {
-      if (cell.playerId !== currentPlayerId) {
+    this.cells.forEach((cell: number | null) => {
+      if (cell !== currentPlayerId) {
         return;
       }
       currentPlayerMarkCount++;
@@ -63,7 +59,7 @@ export class Board {
 
     this.matrixCheck.forEach((row) => {
       const check = row.every(
-        (index: number) => this.cells[index].playerId === currentPlayerId
+        (index: number) => this.cells[index] === currentPlayerId
       );
       if (check) {
         gameOverCondition = Game.Win;
