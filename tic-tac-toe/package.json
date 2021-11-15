@@ -17,7 +17,8 @@
   "scripts": {
     "start": "concurrently --kill-others \"less-watch-compiler --config less-watcher.config.json\" \"react-scripts start\"",
     "build": "react-scripts build",
-    "test": "react-scripts test",
+    "test": "nightwatch",
+    "debug": "node --inspect-brk node_modules/.bin/nightwatch",
     "eject": "react-scripts eject"
   },
   "eslintConfig": {
@@ -45,11 +46,15 @@
     "@types/node": "^12.20.34",
     "@types/react": "^17.0.32",
     "@types/react-dom": "^17.0.10",
+    "@wojtekmaj/enzyme-adapter-react-17": "^0.6.5",
+    "chromedriver": "^95.0.0",
     "concurrently": "^6.3.0",
     "enzyme": "^3.11.0",
     "enzyme-adapter-react-16": "^1.15.6",
+    "geckodriver": "^2.0.4",
     "less": "^4.1.2",
     "less-watch-compiler": "^1.16.3",
+    "nightwatch": "^1.7.11",
     "typescript": "^4.4.4"
   }
 }

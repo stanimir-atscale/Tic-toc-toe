@@ -24,6 +24,7 @@
     "experimentalDecorators": true,
   },
   "include": [
-    "src"
+    "src",
+    "nightwatch.config.js"
   ]
 }

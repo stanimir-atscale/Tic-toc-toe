@@ -67,27 +67,14 @@ export class GameComponent extends Component<Props> {
         <CellComponent
           playerId={cell}
           cellIndex = {index}
-          currentPlayerMark={this.props.store?.currentPlayer.mark || "x"}
+          currentPlayerMark={this.props.store?.currentPlayer.mark as string}
           onChange={(event: React.ChangeEvent<HTMLInputElement>) => {
-            this.handleCheckboxChange(event);
+            this.props.store?.checkboxChange(Number(event.target.id));
           }}
           key={index}
         />
       );
     });
-  }
-
-  private handleCheckboxChange(event: React.ChangeEvent<HTMLInputElement>) {
-    this.props.store?.board.updateCellProperty(
-      Number(event.target.id),
-      this.props.store?.currentPlayer.id
-    );
-
-    const gameCondition = this.props.store?.board.checkGameOverCondition(
-      this.props.store?.currentPlayer.id
-    );
-
-    this.props.store?.gameOver(gameCondition);
   }
 
   private handleResetBoardClick(event: React.MouseEvent<HTMLButtonElement>) {

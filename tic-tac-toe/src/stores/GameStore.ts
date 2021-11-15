@@ -49,6 +49,17 @@ export default class GameStore {
     }
   }
 
+  checkboxChange(cellId: number) {
+    this.board.updateCellProperty(
+      cellId,
+      this.currentPlayer.id
+    );
+    const gameCondition = this.board.checkGameOverCondition(
+      this.currentPlayer.id
+    );
+    this.gameOver(gameCondition);
+  }
+
   private changeCurrentPlayer() {
     if (this.currentPlayer.id === 0) {
       this.currentPlayer = this.players[1];
