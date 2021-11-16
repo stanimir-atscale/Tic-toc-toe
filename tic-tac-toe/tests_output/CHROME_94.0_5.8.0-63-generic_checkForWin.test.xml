@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<testsuites errors="0"
+            failures="1"
+            tests="1">
+
+  <testsuite name="checkForWin.test"
+    errors="0" failures="1" hostname="" id="" package="checkForWin.test" skipped="0"
+    tests="1" time="5.793" timestamp="">
+  
+    <testcase name="Player win and check result" classname="checkForWin.test" time="5.793" assertions="1">  <failure message="Timed out while waiting for element &lt;.ttt-game-component&gt; to be present for 5000 milliseconds. - expected &#34;visible&#34; but got: &#34;not found&#34; (5431ms)">    at Object.Player win and check result (/home/stanimirkolev/Projects/Tic-toc-toe/tic-tac-toe/nightwatch-tests/checkForWin.test.js:9:8)
+    at processTicksAndRejections (internal/process/task_queues.js:97:5)</failure>
+
+    
+    </testcase>
+  
+
+  
+
+    
+
+  
+  </testsuite>
+</testsuites>

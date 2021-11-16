@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<testsuites errors="0"
+            failures="1"
+            tests="1">
+
+  <testsuite name="checkForDraw.test"
+    errors="0" failures="1" hostname="" id="" package="checkForDraw.test" skipped="0"
+    tests="1" time="5.494" timestamp="">
+  
+    <testcase name="Draw and check results" classname="checkForDraw.test" time="5.494" assertions="1">  <failure message="Timed out while waiting for element &lt;.ttt-game-component&gt; to be present for 5000 milliseconds. - expected &#34;visible&#34; but got: &#34;not found&#34; (5161ms)">    at Object.Draw and check results (/home/stanimirkolev/Projects/Tic-toc-toe/tic-tac-toe/nightwatch-tests/checkForDraw.test.js:9:10)
+    at processTicksAndRejections (internal/process/task_queues.js:97:5)</failure>
+
+    
+    </testcase>
+  
+
+  
+
+    
+
+  
+  </testsuite>
+</testsuites>

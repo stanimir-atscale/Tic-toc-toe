@@ -1,10 +1,13 @@
-1636992777231	geckodriver	INFO	Listening on 127.0.0.1:4444
-1636992777453	mozrunner::runner	INFO	Running command: "/usr/bin/firefox" "--marionette" "-foreground" "-no-remote" "-profile" "/tmp/rust_mozprofile2WU586"
+1637075481719	geckodriver	INFO	Listening on 127.0.0.1:4444
+1637075481905	mozrunner::runner	INFO	Running command: "/usr/bin/firefox" "--marionette" "-foreground" "-no-remote" "-profile" "/tmp/rust_mozprofilebFVkQJ"
 ATTENTION: default value of option mesa_glthread overridden by environment.
 ATTENTION: default value of option mesa_glthread overridden by environment.
 ATTENTION: default value of option mesa_glthread overridden by environment.
 ATTENTION: default value of option mesa_glthread overridden by environment.
-1636992778097	Marionette	INFO	Marionette enabled
-console.warn: SearchSettings: "get: No settings file exists, new profile?" (new NotFoundError("Could not open the file at /tmp/rust_mozprofile2WU586/search.json.mozlz4", (void 0)))
-1636992779298	Marionette	INFO	Listening on port 39603
-1636992781302	Marionette	INFO	Stopped listening on port 39603
+1637075482634	Marionette	INFO	Marionette enabled
+console.warn: SearchSettings: "get: No settings file exists, new profile?" (new NotFoundError("Could not open the file at /tmp/rust_mozprofilebFVkQJ/search.json.mozlz4", (void 0)))
+1637075483711	Marionette	INFO	Listening on port 34123
+1637075486604	Marionette	INFO	Stopped listening on port 34123
+
+###!!! [Parent][RunMessage] Error: Channel closing: too late to send/recv, messages will be lost
+
